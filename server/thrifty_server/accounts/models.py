@@ -7,3 +7,5 @@ phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number mus
 
 class Account(models.Model):
     phone_number = models.CharField(validators=[phone_regex], max_length=15)
+    first_name = models.CharField(max_length=30, null=True)
+    last_name = models.CharField(max_length=30, null=True)
