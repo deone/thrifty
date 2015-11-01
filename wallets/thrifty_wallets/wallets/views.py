@@ -30,7 +30,10 @@ def get(request, phone_number):
     except Wallet.DoesNotExist:
         response.update({'code': 404, 'message': 'Wallet does not exist.'})
     else:
-        response.update({'code': 200, 'value': wallet.id})
+        response.update({
+          'code': 200,
+          'value': wallet.to_dict()
+        })
 
     return JsonResponse(response)
 
