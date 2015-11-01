@@ -9,3 +9,6 @@ class Wallet(models.Model):
     phone_number = models.CharField(validators=[phone_regex], max_length=15) # validators should be a list
     balance = models.PositiveSmallIntegerField()
     network = models.CharField(max_length=7)
+
+    def __str__(self):
+        return self.phone_number
