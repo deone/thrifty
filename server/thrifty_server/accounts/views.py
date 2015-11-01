@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.conf import settings
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 
-from .helpers import send_vms_request
+from .helpers import send_request
 from .models import Account
 
 @csrf_protect
@@ -15,7 +15,7 @@ def create(request):
         number = request.POST['phone_number']
         url = settings.WALLETS_URL + '%s/' % number
         data = {'phone_number': number}
-        response = send_vms_request(url, data)
+        response = send_request(url, data)
         if response['code'] == 200:
             first_name = response['value']['first_name']
             last_name = response['value']['last_name']

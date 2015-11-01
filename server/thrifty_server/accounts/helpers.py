@@ -1,7 +1,7 @@
 
 import requests
 
-def send_vms_request(url, data):
+def send_request(url, data):
     get_response = requests.get(url)
     post_response = requests.post(
           url,
